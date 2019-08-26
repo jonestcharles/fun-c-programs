@@ -1,0 +1,36 @@
+#include <stdio.h>
+int min(int, int);
+
+int main(void) {
+    /* This program takes as input an int denoting the size of a list of ints,
+    then takes the list of ints. Program iterates through list, using min()
+    function to return the min of two numbers, until the list is complete, then
+    prints the min.*/
+    int listSize, i, j, smallest, small;
+    // get list size
+    scanf("%d", &listSize);
+    // initialize list
+    int list[listSize];
+    for (i=0;i<listSize;i++) {
+        scanf("%d", &list[i]);
+    }
+    //iterate through list, get min
+    smallest = list[0]; // initialize a value for smallest, to store history
+    for (j=1;j<listSize;j++) {
+        small = min(smallest, list[j]);
+        if (small < smallest) {
+            smallest = small;
+        }
+    }
+    //print the smallest!
+    printf("%d", smallest);
+    return 0;
+}
+// return smallest of two ints, if they are equal, return one
+int min (int a, int b) {
+    if ( a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
